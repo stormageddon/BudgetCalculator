@@ -1,0 +1,66 @@
+<md-content class="md-padding">
+  <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column" layout-align="center center">
+    <md-input-container>
+      <label>Yearly income</label>
+      <input ng-model="income" ng-change="initSliders()">
+    </md-input-container>
+  </md-content>
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>Rent/Mortgage + utilities per month</span>
+    </div>
+    <md-slider flex min="0" max={{monthlyIncome}} ng-model="rent" aria-label="blue" id="blue-slider" class="md-accent" ng-change="update()" step="5">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="text" ng-model="rent" aria-label="blue" aria-controls="blue-slider" ng-change="update()">
+    </div>
+  </div>
+
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>Food costs per month</span>
+    </div>
+    <md-slider flex min="0" max={{monthlyIncome}} ng-model="food" aria-label="blue" id="blue-slider" class="md-accent" ng-change="update()" step="5">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="text" ng-model="food" aria-label="food" aria-controls="food-slider" ng-change="update()">
+    </div>
+  </div>
+
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>Automobile costs per month</span>
+    </div>
+    <md-slider flex min="0" max={{monthlyIncome}} ng-model="car" aria-label="blue" id="blue-slider" class="md-accent" ng-change="update()" step="5">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="text" ng-model="car" aria-label="car" id="car-slider" class="md-accent" ng-change="update()">
+    </div>
+  </div>
+
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>New savings per month</span>
+    </div>
+    <md-slider flex min="0" max={{monthlyIncome}} ng-model="savings" aria-label="savings" id="savings-slider" class="md-accent" ng-change="update()" step="5">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="text" ng-model="savings" aria-label="savings" id="savings-slider" class="md-accent" ng-change="update()">
+    </div>
+  </div>
+
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>Total Monthly Expenses</span>
+    </div>
+    <md-slider flex min="0" max={{monthlyIncome}} ng-model="totalExpenses" aria-label="red" id="red-slider" class="md-warn" ng-disabled="true">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="text" ng-disabled="true" ng-model="totalExpensesLabel" ng-class="{overbudgeted: totalExpenses > monthlyIncome}">
+    </div>
+  </div>
+</div>
+
+<md-button ng-click="initSliders()" class="md-primary md-raised" layout-align="center center">Reset</md-button>
+
+</md-content>
