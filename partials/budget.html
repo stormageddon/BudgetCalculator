@@ -14,7 +14,6 @@
   
   </md-content>
 
-<br><br>
   <div layout>
     <div flex="10" layout layout-align="center center">
       <span>Rent/Mortgage per month</span>
@@ -70,7 +69,7 @@
     </div>
   </div>
 
-    <div layout>
+  <div layout>
     <div flex="10" layout layout-align="center center">
       <span>Discretionary spending (wants) per month</span>
     </div>
@@ -91,8 +90,8 @@
       <input type="text" ng-disabled="true" ng-model="totalExpensesLabel" ng-class="{overbudgeted: totalExpenses > monthlyIncome}">
     </div>
   </div>
-</div>
 
-<md-button ng-click="initSliders()" class="md-primary md-raised" layout-align="center center">Reset</md-button>
-
+  <md-content layout="row" layout-align="center center">
+    <md-button ng-click="initSliders()" class="md-primary md-raised">Reset</md-button>
+  </md-content>
 </md-content>

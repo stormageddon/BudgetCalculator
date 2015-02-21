@@ -1,11 +1,4 @@
 //Budget Calculator
-var BudgetNamespace = BudgetNamespace || {};
-BudgetNamespace.stateTaxMap = {
-	
-
-	
-};
-
 var app = angular.module('app', ['ngMaterial', 'ngRoute']);
 
 app.config(function ($mdThemingProvider) {

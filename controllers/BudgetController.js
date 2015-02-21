@@ -46,9 +46,7 @@ app.controller('BudgetController', function($scope, states) {
     $scope.savings = (mIncome * .16).toFixed(0)
 
     $scope.totalExpenses = (parseInt($scope.rent, 10) + parseInt($scope.utilities, 10) + parseInt($scope.food, 10) + parseInt($scope.car, 10) + parseInt($scope.discretionary, 10) + parseInt($scope.savings, 10)) + '';
-    $scope.totalExpensesLabel = $scope.totalExpenses + '/' + $scope.monthlyIncome;  
-    
-    
+    $scope.totalExpensesLabel = $scope.totalExpenses + '/' + $scope.monthlyIncome;    
   };
 
   $scope.update = function() {
