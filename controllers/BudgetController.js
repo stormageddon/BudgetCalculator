@@ -1,4 +1,4 @@
-app.controller('BudgetController', function($scope) {
+app.controller('BudgetController', function($scope, states) {
 
   $scope.income = '';
   $scope.rent = 0;
@@ -10,13 +10,13 @@ app.controller('BudgetController', function($scope) {
   $scope.totalExpensesLabel = '0/0';
   $scope.state = 'Select State';
 
-  $scope.stateTaxMap = BudgetNamespace.stateTaxMap;
-  $scope.states = ['Select State', 'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 
-                      'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV',
-                      'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
-  console.log($scope.stateTaxMap);
+  $scope.stateTaxMap = states;
+  $scope.states = ['Select State'].concat(Object.keys(states));
   
   $scope.initSliders = function() {
+    if( $scope.state === 'Select State' ) {
+      return;
+    }
     /*
       Necessities (58%)
       -------------------
@@ -38,8 +38,6 @@ app.controller('BudgetController', function($scope) {
     $scope.totalExpenses = (parseInt($scope.rent, 10) + parseInt($scope.food, 10) + parseInt($scope.car, 10) + parseInt($scope.savings, 10));
     
     $scope.totalExpensesLabel = $scope.totalExpenses + '/' + $scope.monthlyIncome;
-
-    console.log('State tax: ', $scope.stateTaxMap[$scope.state]);
   };
 
   $scope.update = function() {
@@ -64,9 +62,7 @@ app.controller('BudgetController', function($scope) {
   }
 
   var calculateStateTax = function() {
-    console.log("Looking up state: ", $scope.state);
-    console.log("Returning tax: ", $scope.stateTaxMap[$scope.state]);
-    return $scope.income * $scope.stateTaxMap[$scope.state];
+    return $scope.income * $scope.stateTaxMap[$scope.state].taxRate;
   }
 
   var calculateSocialSecurityTax = function() {

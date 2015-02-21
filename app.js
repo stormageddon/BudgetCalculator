@@ -1,8 +1,6 @@
 //Budget Calculator
 var BudgetNamespace = BudgetNamespace || {};
 BudgetNamespace.stateTaxMap = {
-	AK: 0.0000,
-	AL: 0.0200,
 	AR: 0.0090,
 	AZ: 0.0259,
 	CA: 0.0100,
@@ -19,7 +17,6 @@ BudgetNamespace.stateTaxMap = {
 	KS: 0.0270,
 	KY: 0.0200,
 	LA: 0.0200,
-	MA: 0.0515,
 	MD: 0.0200,
 	ME: 0.0000,
 	MI: 0.0425,
