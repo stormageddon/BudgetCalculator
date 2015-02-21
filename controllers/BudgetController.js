@@ -2,6 +2,7 @@ app.controller('BudgetController', function($scope, states) {
 
   $scope.income = '';
   $scope.rent = 0;
+  $scope.utilities = 0;
   $scope.food = 0;
   $scope.car = 0;
   $scope.totalExpenses = 0;
@@ -18,30 +19,38 @@ app.controller('BudgetController', function($scope, states) {
       return;
     }
     /*
-      Necessities (58%)
+      Necessities (63%)
       -------------------
       33% income = rent
+      5% = utilities
       10% = food
-      15% = Automobile expenses
+      15% = Travel expenses
 
-      Savings (15%)
-      15% = save
+      Wants (20%)
+      -------------------
+      20% income = discretionary spending
+
+      Savings (20%)
+      -------------------
+      17% = save
      */
     var mIncome = calculateMonthlyIncome($scope.income);
     $scope.monthlyIncome = (mIncome).toFixed(0);
 
     $scope.rent = (mIncome * .33).toFixed(0);
+    $scope.utilities = (mIncome * .05).toFixed(0);
     $scope.food = (mIncome * .1).toFixed(0);
     $scope.car = (mIncome * .15).toFixed(0);
-    $scope.savings = (mIncome * .15).toFixed(0)
+    $scope.discretionary = (mIncome *.2).toFixed(0);
+    $scope.savings = (mIncome * .17).toFixed(0)
 
-    $scope.totalExpenses = (parseInt($scope.rent, 10) + parseInt($scope.food, 10) + parseInt($scope.car, 10) + parseInt($scope.savings, 10));
+    $scope.totalExpenses = (parseInt($scope.rent, 10) + parseInt($scope.utilities, 10) + parseInt($scope.food, 10) + parseInt($scope.car, 10) + parseInt($scope.discretionary, 10) + parseInt($scope.savings, 10));
     
     $scope.totalExpensesLabel = $scope.totalExpenses + '/' + $scope.monthlyIncome;
   };
 
   $scope.update = function() {
-    $scope.totalExpenses = (parseInt($scope.rent, 10) + parseInt($scope.food, 10) + parseInt($scope.car, 10) + parseInt($scope.savings, 10));
+    $scope.totalExpenses = (parseInt($scope.rent, 10) + parseInt($scope.utilities, 10) + parseInt($scope.food, 10) + parseInt($scope.car, 10) + parseInt($scope.discretionary, 10) + parseInt($scope.savings, 10));
 
     $scope.totalExpensesLabel = $scope.totalExpenses + '/' + $scope.monthlyIncome;
   }

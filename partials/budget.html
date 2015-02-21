@@ -17,12 +17,23 @@
 <br><br>
   <div layout>
     <div flex="10" layout layout-align="center center">
-      <span>Rent/Mortgage + utilities per month</span>
+      <span>Rent/Mortgage per month</span>
     </div>
     <md-slider flex min="0" max={{monthlyIncome}} ng-model="rent" aria-label="blue" id="blue-slider" class="md-primary" ng-change="update()" step="5">
     </md-slider>
     <div flex="20" layout layout-align="center center">
       <input type="text" ng-model="rent" aria-label="blue" aria-controls="blue-slider" ng-change="update()">
+    </div>
+  </div>
+
+  <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>Utilities per month</span>
+    </div>
+    <md-slider flex min="0" max={{monthlyIncome}} ng-model="utilities" aria-label="blue" id="blue-slider" class="md-primary" ng-change="update()" step="5">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="text" ng-model="utilities" aria-label="blue" aria-controls="blue-slider" ng-change="update()">
     </div>
   </div>
 
@@ -39,7 +50,7 @@
 
   <div layout>
     <div flex="10" layout layout-align="center center">
-      <span>Automobile costs per month</span>
+      <span>Travel costs per month</span>
     </div>
     <md-slider flex min="0" max={{monthlyIncome}} ng-model="car" aria-label="blue" id="blue-slider" class="md-primary" ng-change="update()" step="5">
     </md-slider>
@@ -56,6 +67,17 @@
     </md-slider>
     <div flex="20" layout layout-align="center center">
       <input type="text" ng-model="savings" aria-label="savings" id="savings-slider" class="md-accent" ng-change="update()">
+    </div>
+  </div>
+
+    <div layout>
+    <div flex="10" layout layout-align="center center">
+      <span>Discretionary spending (wants) per month</span>
+    </div>
+    <md-slider flex min="0" max={{monthlyIncome}} ng-model="discretionary" aria-label="discretionary" id="discretionary-slider" class="md-primary" ng-change="update()" step="5">
+    </md-slider>
+    <div flex="20" layout layout-align="center center">
+      <input type="text" ng-model="discretionary" aria-label="discretionary" id="discretionary-slider" class="md-accent" ng-change="update()">
     </div>
   </div>
 
