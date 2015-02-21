@@ -30,9 +30,9 @@ app.controller('BudgetController', function($scope, states) {
       -------------------
       20% income = discretionary spending
 
-      Savings (20%)
+      Savings (16%)
       -------------------
-      17% = save
+      16% = save
      */
     var mIncome = calculateMonthlyIncome($scope.income);
     $scope.monthlyIncome = (mIncome).toFixed(0);
@@ -42,7 +42,7 @@ app.controller('BudgetController', function($scope, states) {
     $scope.food = (mIncome * .1).toFixed(0);
     $scope.car = (mIncome * .15).toFixed(0);
     $scope.discretionary = (mIncome *.2).toFixed(0);
-    $scope.savings = (mIncome * .17).toFixed(0)
+    $scope.savings = (mIncome * .16).toFixed(0)
 
     $scope.totalExpenses = (parseInt($scope.rent, 10) + parseInt($scope.utilities, 10) + parseInt($scope.food, 10) + parseInt($scope.car, 10) + parseInt($scope.discretionary, 10) + parseInt($scope.savings, 10));
     
