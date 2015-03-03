@@ -13,4 +13,4 @@ To install, clone the BudgetCalculator repository. In the root folder, run ```bo
 5. Add more budget categories
 6. Update UI
 7. Fix withholdings for tax brackets
-
+8. Gross income post tax
