@@ -71,7 +71,12 @@ app.controller('BudgetController', function($scope, states) {
   }
 
   var calculateStateTax = function() {
-    return $scope.income * $scope.stateTaxMap[$scope.state].taxRate;
+    var stateTaxRate = $scope.stateTaxMap[$scope.state].taxRate;
+    var calculatedStateTaxRate = stateTaxRate;
+    if( isFunction(stateTaxRate) ) {
+      calculatedStateTaxRate = stateTaxRate.call(null,$scope.income);
+    }
+    return $scope.income * calculatedStateTaxRate;
   }
 
   var calculateSocialSecurityTax = function() {
@@ -80,6 +85,11 @@ app.controller('BudgetController', function($scope, states) {
 
   var calculateMedicareTax = function() {
     return $scope.income * 0.062;
+  }
+
+  function isFunction(functionToCheck) {
+    var getType = {};
+    return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
   }
 
 });
