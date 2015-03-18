@@ -13,4 +13,11 @@ To install, clone the BudgetCalculator repository. In the root folder, run ```bo
 5. Add more budget categories
 6. Update UI
 7. Fix withholdings for tax brackets
-8. Gross income post tax
+8. Add breakdown section with more information
+   a. Gross income
+   b. 401ks
+   c. Taxes
+   d. Net take home (monthly)
+   e. Roth(s)
+   f. Total expenses
+
