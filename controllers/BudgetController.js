@@ -1,4 +1,4 @@
-app.controller('BudgetController', function($scope, states) {
+app.controller('BudgetController', function($scope, utils, states) {
 
   $scope.income = '';
   $scope.rent = 0;
@@ -73,7 +73,7 @@ app.controller('BudgetController', function($scope, states) {
   var calculateStateTax = function() {
     var stateTaxRate = $scope.stateTaxMap[$scope.state].taxRate;
     var calculatedStateTaxRate = stateTaxRate;
-    if( isFunction(stateTaxRate) ) {
+    if( utils.isFunction(stateTaxRate) ) {
       calculatedStateTaxRate = stateTaxRate.call(null,$scope.income);
     }
     return $scope.income * calculatedStateTaxRate;
@@ -85,11 +85,6 @@ app.controller('BudgetController', function($scope, states) {
 
   var calculateMedicareTax = function() {
     return $scope.income * 0.062;
-  }
-
-  function isFunction(functionToCheck) {
-    var getType = {};
-    return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
   }
 
 });
